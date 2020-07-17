@@ -11,12 +11,13 @@ import (
 func main() {
 	r := gin.Default()
 	store := cookie.NewStore([]byte("nevikw39_0725"))
+	r.Static("static", "static/")
 	r.LoadHTMLGlob("templ/*")
 	r.Use(sessions.Sessions("nevikw39_0725", store))
-	r.GET("/login", func(c *gin.Context) {
+	r.GET("login", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "login.html", gin.H{})
 	})
-	r.POST("/login", func(c *gin.Context) {
+	r.POST("login", func(c *gin.Context) {
 		pwd := c.PostForm("pwd")
 		session := sessions.Default(c)
 		switch pwd {
@@ -29,6 +30,13 @@ func main() {
 		default:
 			c.JSON(http.StatusUnauthorized, gin.H{})
 		}
+	})
+	r.GET("success", func(c *gin.Context) {
+		session := sessions.Default(c)
+		if session.Get("nevikw39_0725") != "nevikw39_0725" {
+			c.Redirect(http.StatusTemporaryRedirect, "login")
+		}
+		c.HTML(http.StatusOK, "success.html", gin.H{})
 	})
 	r.Run(":725")
 }
