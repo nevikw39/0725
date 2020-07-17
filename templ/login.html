@@ -24,15 +24,17 @@
 </head>
 
 <body class="text-center">
-    <form class="mx-auto pt-5 col-md-4">
+    <div class="mx-auto pt-5 col-md-4">
         <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72"
             height="72">
         <h1 class="h3 mb-3 font-weight-normal">請輸入咒語以繼續</h1>
         <label for="inputPassword" class="sr-only">咒語</label>
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
         <input type="password" id="inputPassword" class="form-control" placeholder="咒語" required>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">芝麻開門</button>
+        <div class="invalid-feedback">密碼錯誤！！ＱＱ</div>
+        <button class="btn btn-lg btn-primary btn-block" id="btnPassword">芝麻開門</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-    </form>
+    </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         type="text/javascript"></script>
