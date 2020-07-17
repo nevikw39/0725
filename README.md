@@ -9,8 +9,8 @@
 
 ### 架構
 #### 後端
-[] index redirect
+[ ] index redirect
 #### 前端
-[] success.html
-[] anime
-[] footer
+[ ] success.html
+[ ] anime
+[ ] footer
