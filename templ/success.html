@@ -24,11 +24,97 @@
 </head>
 
 <body class="text-center">
+    <section class="d-block">
+        <h1 id="cong">Congratulation!!</h1>
+    </section>
+    <div class="d-block">
+        <div class="w-100 h-100 overflow-hidden" id="pin">
+            <section class="w-100 h-100 position-absolute bg-info">
+                <h1 class="position-relative" style="top: 50%;">info</h1>
+            </section>
+            <section class="w-100 h-100 position-absolute bg-success">
+                <h1 class="position-relative" style="top: 50%;">success</h1>
+            </section>
+            <section class="w-100 h-100 position-absolute bg-warning">
+                <h1 class="position-relative" style="top: 50%;">warning</h1>
+            </section>
+            <section class="w-100 h-100 position-absolute bg-danger">
+                <h1 class="position-relative" style="top: 50%;">danger</h1>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <div class="col-lg-12 p-4">
+            <div class="container text-center">
+                <ul class="list-inline">
+                    <li class="d-inline-block p-1 list-inline-item"><a href="https://www.instagram.com/nevikw39/"
+                            class="fa fa-instagram"></a></li>
+                    <li class="d-inline-block p-1 list-inline-item"><a href="https://github.com/nevikw39/"
+                            class="fa fa-github"></a></li>
+                </ul>
+                <p class="display-5">&copy;2020 @nevikw39</p>
+            </div>
+        </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         type="text/javascript"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" type="text/javascript"></script>
-    <script defer src="static/login.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"
+        integrity="sha512-HzAEuXwhLxwm/Jj+5ecdjzrRVrjuh2ZeIxyT1Ln37TO5pWNMnKBuU7cfd1wvRQ/k86w1oC174Yk1T7aRlBpIcA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"
+        integrity="sha512-A98SmLRZISk4eIxQBeCm8k0jAcwN3A3lBx4hr7baoMpV1VpxcxlZIhi5fJIZN50sQ5RlCzx8yV+Voy2cR6x0aA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.velocity.min.js"
+        integrity="sha512-6Fw+pSuqmag+yYx0kMzlwVBy51GAIXyT1S4B0l5yRs+ku5LLKD/kfCOLA9Rer2Y/iBNAoPEiexwlsKKFChhk7Q=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/jquery.ScrollMagic.min.js"
+        integrity="sha512-f031btWm661Twvo3JQ18X5z8epjTu5K4eNcOOYNJs3AKU0wOTGnY1mjXUmfsTJ96lYggbyIg9vdJ7nbjdddtvQ=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"
+        integrity="sha512-elauk8NI35rjTlatfRQxeqmJoieQlfm0W8AeQVps+j+KkMDdaqNxVazFzwyU7uSOyeeVn/VLbGYLwOR/D5I6Kw=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+    <script>
+        $(function () {
+            let controller = new ScrollMagic.Controller();
+            let wipeAnimation = new TimelineMax()
+                .fromTo("section.bg-success", 1, { x: "-100%" }, { x: "0%", ease: Linear.easeNone })
+                .fromTo("section.bg-warning", 1, { y: "100%" }, { y: "0%", ease: Linear.easeNone })
+                .fromTo("section.bg-danger", 1, { x: "100%" }, { x: "0%", ease: Linear.easeNone });
+            new ScrollMagic.Scene({
+                triggerElement: "#pin",
+                triggerHook: "onLeave",
+                duration: "300%"
+            }).setPin("#pin")
+                .setTween(wipeAnimation)
+                .addTo(controller);
+        });
+        var textWrapper = document.querySelector('#cong');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        anime.timeline({ loop: true })
+            .add({
+                targets: '#cong',
+                translateY: "600%",
+                scale: 3,
+                duration: 600,
+                easing: "easeInExpo",
+            })
+            .add({
+                targets: '#cong .letter',
+                opacity: [0, 1],
+                easing: "easeInOutQuad",
+                duration: 2250,
+                delay: (el, i) => 150 * (i + 1) - 50
+            }).add({
+                targets: '#cong',
+                opacity: 0,
+                duration: 1000,
+                easing: "easeOutExpo",
+                delay: 1000
+            });
+    </script>
 </body>
 
 </html>
