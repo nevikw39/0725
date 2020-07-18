@@ -18,7 +18,7 @@ anime.timeline({ loop: true })
     .add({
         targets: '#cong',
         translateY: "600%",
-        scale: 3,
+        // scale: 3,
         duration: 600,
         easing: "easeInExpo",
     })
