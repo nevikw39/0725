@@ -51,7 +51,6 @@ let animeBtn = anime({
     easing: easings[Math.floor(Math.random() * easings.length)],
     duration: 200,
     translateY: [5, 0, -5, 0],
-    rotate: [5, 0, -5, 0],
     direction: 'alternate',
     loop: true,
     autoplay: false
@@ -63,6 +62,7 @@ anime({
     duration: 2500,
     loop: true
 });
+$("#time").hide();
 $("#btnPassword").hover(() => animeBtn.play(), () => animeBtn.pause())
 $("#btnPassword").click(() => {
     let data = new URLSearchParams();
@@ -80,6 +80,32 @@ $("#btnPassword").click(() => {
                     translateX: [50, 0, -50, 0],
                     loop: 10
                 });
+                $("#btnPassword").attr("disabled", true);
+                animeBtn.pause();
+                $("#time").show();
+                let animeBtnLocked = anime({
+                    targets: '#btnPassword',
+                    easing: easings[Math.floor(Math.random() * easings.length)],
+                    duration: 350,
+                    rotate: [5, 0, -5, 0],
+                    direction: 'alternate',
+                    loop: true
+                });
+                let cnt = 60;
+                let time = setInterval(() => {
+                    if (!cnt--) {
+                        clearInterval(time);
+                        $("#btnPassword").attr("disabled", false);
+                        animeBtnLocked.pause();
+                    };
+                }, 1000);
+                anime({
+                    targets: "#time",
+                    innerHTML: [60, 0],
+                    easing: 'linear',
+                    round: 100,
+                    duration: 60000
+                  });
                 break;
             case 200:
                 window.location.reload();
