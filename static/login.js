@@ -1,13 +1,4 @@
 let easings = [
-    'easeInQuad',
-    'easeInCubic',
-    'easeInQuart',
-    'easeInQuint',
-    'easeInSine',
-    'easeInExpo',
-    'easeInCirc',
-    'easeInBack',
-    'easeInBounce',
     'easeInOutQuad',
     'easeInOutCubic',
     'easeInOutQuart',
@@ -16,16 +7,7 @@ let easings = [
     'easeInOutExpo',
     'easeInOutCirc',
     'easeInOutBack',
-    'easeInOutBounce',
-    'easeOutQuad',
-    'easeOutCubic',
-    'easeOutQuart',
-    'easeOutQuint',
-    'easeOutSine',
-    'easeOutExpo',
-    'easeOutCirc',
-    'easeOutBack',
-    'easeOutBounce'
+    'easeInOutBounce'
 ];
 anime.timeline({ loop: true })
     .add({
