@@ -1,21 +1,22 @@
 $(function () {
     let controller = new ScrollMagic.Controller();
     let wipeAnimation = new TimelineMax()
-        .fromTo("section.bg-success", 1.5, { x: "-100%" }, { x: "0%", ease: Circ.easeInOut })
-        .fromTo("section.bg-warning", 1.5, { y: "100%" }, { y: "0%", ease: Expo.easeInOut })
-        .fromTo("section.bg-danger", 1.5, { x: "100%" }, { x: "0%", ease: Sine.easeInOut });
+        .fromTo("section.bg-success", 1, { x: "-100%" }, { x: "0%", ease: Circ.easeInOut })
+        .fromTo("section.bg-warning", 1, { y: "100%" }, { y: "0%", ease: Expo.easeInOut })
+        .fromTo("section.bg-danger", 1, { x: "100%" }, { x: "0%", ease: Sine.easeInOut });
     new ScrollMagic.Scene({
         triggerElement: "#pin",
         triggerHook: "onLeave",
-        duration: "300%"
+        duration: "750%"
     })
         .setPin("#pin")
         .setTween(wipeAnimation)
+        .addIndicators()
         .addTo(controller);
     new ScrollMagic.Scene({
         triggerElement: "#trigger0"
     })
-        .setTween("#cong", 2, { rotate: 90, scale: 3 })
+        .setTween("#cong", 2, { rotate: 90, scale: 2 })
         .on("enter leave", e => {
             if (e.type == "enter") {
                 if (launch_id && loop_id) {
@@ -29,7 +30,7 @@ $(function () {
         })
         .addTo(controller);
     let cardAnimation = new TimelineMax()
-        .fromTo("div.card", 3, { rotation: -60, x: "-50%", scale: 0.25 }, {rotation: 0, x: "0%", scale: 1, ease: Quint.easeInOut})
+        .fromTo("div.card", 2.5, { rotation: -60, x: "-50%", scale: 0.25 }, {rotation: 0, x: "0%", scale: 1, ease: Quint.easeInOut})
     new ScrollMagic.Scene({
         triggerElement: "#trigger1"
     })
