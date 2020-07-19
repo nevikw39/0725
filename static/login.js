@@ -87,8 +87,10 @@ $("#form").submit(() => {
         switch (r.status) {
             case 403:
                 $("#modal").modal("show")
-            case 401:
             case 429:
+            case 401:
+                if (r.status == 429)
+                    alert("還想偷雞啊 ㄏㄏ");
                 r.json().then(j => {
                     localStorage.setItem("nevikw39_0725", j.nevikw39_0725);
                     failed(Math.round((j.nevikw39_0725 - Date.now() * 10 ** 6) / 10 ** 9))
