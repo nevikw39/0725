@@ -46,9 +46,8 @@ anime({
 });
 $("#time").hide();
 $("#btnPassword").hover(() => animeBtn.play(), () => animeBtn.pause())
-$("#btnPassword").click(() => {
-    let data = new URLSearchParams();
-    data.append("pwd", $("#inputPassword").val());
+$("#form").submit(() => {
+    let data = new FormData(document.getElementById("form"));
     fetch(".", { method: "post", body: data, credentials: 'include' }).then(r => {
         switch (r.status) {
             case 403:
@@ -87,10 +86,11 @@ $("#btnPassword").click(() => {
                     easing: 'linear',
                     round: 100,
                     duration: 60000
-                  });
+                });
                 break;
             case 200:
                 window.location.reload();
         }
-    }).catch(e => console.log(e))
+    }).catch(e => console.log(e));
+    return false;
 });
