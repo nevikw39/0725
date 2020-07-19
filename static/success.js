@@ -27,16 +27,13 @@ $(function () {
                 loop_id = setInterval(loop, 1000 / 50);
             }
         })
-        .addIndicators({ name: "cong" })
         .addTo(controller);
     let cardAnimation = new TimelineMax()
-        .to("#card", 1, { rotation: -30, x: "-50%", scale: 2 })
-        .to("#card", 3, { rotation: 0, x: "0%", scale: 1 })
+        .fromTo("div.card", 3, { rotation: -60, x: "-50%", scale: 0.25 }, {rotation: 0, x: "0%", scale: 1, ease: Quint.easeInOut})
     new ScrollMagic.Scene({
         triggerElement: "#trigger1"
     })
         .setTween(cardAnimation)
-        .addIndicators()
         .addTo(controller);
 });
 
