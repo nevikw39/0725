@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"time"
 
@@ -30,6 +31,7 @@ func main() {
 		if n != nil && time.Now().Sub(time.Unix(0, n.(int64))).Nanoseconds() < 0 {
 			c.JSON(http.StatusTooManyRequests, gin.H{"nevikw39_0725": n.(int64)})
 		} else {
+			fmt.Printf("\t%s: %s\n", c.ClientIP(), pwd)
 			switch pwd {
 			case "a":
 				session.Set("nevikw39_0725", "nevikw39_0725")
