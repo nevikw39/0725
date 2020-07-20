@@ -9,6 +9,7 @@ let easings = [
     'easeInOutBack',
     'easeInOutBounce'
 ];
+document.title = "佰拾壹中部電資聯合幹部見面：ＲＰＧ解謎";
 $("#time").hide();
 anime.timeline({ loop: true })
     .add({

@@ -1,9 +1,22 @@
 <!doctype html>
 <html lang="en">
-<!-- nevikw39_0725{} -->
+
 <head>
     <meta charset="utf-8">
-    <title>佰拾壹中部電資聯合幹部見面：ＲＰＧ解謎</title>
+    <title>
+        果然還是被你找到最後一關呢 &gt;&lt;
+        大家都想要這個網站的密碼ㄅ。先別管這個了，你聽過「費氏數列」嗎？？就是：
+            F_0 = 0
+            F_1 = 1
+            F_n = F_{n-1} + F_{n-2}
+        另外，我們有 S(x) 如下：
+            S(5269) = 5 + 2 + 6 + 9 = 22
+            S(9487) = 9 + 4 + 8 + 7 = 28
+            S(198964) = 1 + 9 + 8 + 9 + 6 + 4 = 37
+        現在，最後一個提示：「S(F_{111}) = '?'」。
+        加油！！
+    </title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="佰拾壹中部電資聯合幹部見面：ＲＰＧ仿ＣＴＦ解謎" />
@@ -24,9 +37,8 @@
 </head>
 
 <body class="text-center">
-    <form class="mx-auto pt-5 col-md-4" id="form" method="post">
-        <img class="mb-4 rounded-circle" src="static/favicon.ico" id="img" width="72"
-            height="72">
+    <form class="mx-auto pt-5 mb-5 col-md-4" id="form" method="post">
+        <img class="mb-4 rounded-circle" src="static/favicon.ico" id="img" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal" id="title">請輸入咒語以解鎖</h1>
         <label for="inputPassword" class="sr-only">咒語</label>
         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
@@ -35,11 +47,14 @@
         <button class="my-3 btn btn-lg btn-success btn-block" id="btnPassword" type="submit">芝麻開門～～</button>
     </form>
     <span class="badge badge-info" id="time" style="width: 50px !important;"></span>
-    <div class="mx-auto col-md-4 card bg-dark text-dark border-dark">
+    <div class="mx-auto my-5 col-md-4 card bg-dark text-dark border-dark">
         <div class="card-header bg-dark border-dark">nevikw39_0725{}</div>
         <div class="card-body">
             <h5 class="card-title">歡迎各位進入第二關！！</h5>
-            <p class="card-text"></p>
+            <p class="card-text">
+                我不太熟悉架前端網頁，每次都要下一大堆註解ＱＱ<br>
+                不過這樣也好，有時候我都會把密碼的提示隱藏在原始碼裡，這樣就不會忘記了！！
+            </p>
         </div>
     </div>
     <div class="modal fade" id="modal" tabindex="-1" role="dialog">
@@ -51,14 +66,15 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body bg-warning">就差那麼臨門一腳惹！！再加油</div>
+                <div class="modal-body bg-warning text-dark">啊哈哈，這還不是正確答案喔！！然而方向是正確喔 o'_'o 就差那麼臨門一腳惹！！想想看，這個數字似乎可以代表？？
+                </div>
                 <div class="modal-footer bg-warning">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-    <footer>
+    <footer class="mt-5">
         <div class="col-lg-12 p-4">
             <div class="container text-center">
                 <ul class="list-inline">
