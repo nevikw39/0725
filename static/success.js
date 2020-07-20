@@ -1,13 +1,14 @@
 $(function () {
     let controller = new ScrollMagic.Controller();
     let wipeAnimation = new TimelineMax()
-        .fromTo("section.bg-success", 1, { x: "-100%" }, { x: "0%", ease: Circ.easeInOut })
-        .fromTo("section.bg-warning", 1, { y: "100%" }, { y: "0%", ease: Expo.easeInOut })
-        .fromTo("section.bg-danger", 1, { x: "100%" }, { x: "0%", ease: Sine.easeInOut });
+        .fromTo("section.bg-success", 2, { x: "-100%" }, { x: "0%", ease: Circ.easeInOut })
+        .fromTo("section.bg-warning", 1.5, { y: "100%" }, { y: "0%", ease: Bounce.easeInOut })
+        .fromTo("section.bg-danger", 1, { x: "100%" }, { x: "0%", ease: Expo.easeInOut })
+        .fromTo("#trigger1", 0.03, { y: "1%" }, { y: "0%", ease: Quint.easeInOut });
     new ScrollMagic.Scene({
         triggerElement: "#pin",
         triggerHook: "onLeave",
-        duration: "750%"
+        duration: "1450%"
     })
         .setPin("#pin")
         .setTween(wipeAnimation)
@@ -45,12 +46,12 @@ anime.timeline({ loop: true })
         targets: '#cong .letter',
         opacity: [0.25, 1],
         easing: "easeInOutQuad",
-        duration: 2250,
+        duration: 2350,
         delay: (el, i) => 150 * i
     }).add({
         targets: '#cong .letter',
         opacity: [1, 0.25],
-        duration: 1350,
+        duration: 1250,
         easing: "easeInOutCubic",
         delay: (el, i) => 150 * i
     });
