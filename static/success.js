@@ -1,10 +1,11 @@
 $(function () {
+    $(".toast").toast("show");
     let controller = new ScrollMagic.Controller();
     let wipeAnimation = new TimelineMax()
-        .fromTo("section.bg-success", 2, { x: "-100%" }, { x: "0%", ease: Circ.easeInOut })
-        .fromTo("section.bg-warning", 1.5, { y: "100%" }, { y: "0%", ease: Bounce.easeInOut })
-        .fromTo("section.bg-danger", 1, { x: "100%" }, { x: "0%", ease: Expo.easeInOut })
-        .fromTo("#trigger1", 0.03, { y: "1%" }, { y: "0%", ease: Quint.easeInOut });
+        .fromTo("section.bg-success", 5, { x: "-100%" }, { x: "0%", ease: Circ.easeInOut })
+        .fromTo("section.bg-warning", 3, { y: "100%" }, { y: "0%", ease: Bounce.easeInOut })
+        .fromTo("section.bg-danger", 2, { x: "100%" }, { x: "0%", ease: Expo.easeInOut })
+        .fromTo("#trigger1", 1, { y: "1%" }, { y: "0%", ease: Quint.easeInOut });
     new ScrollMagic.Scene({
         triggerElement: "#pin",
         triggerHook: "onLeave",
@@ -31,12 +32,33 @@ $(function () {
         })
         .addTo(controller);
     let cardAnimation = new TimelineMax()
-        .fromTo("div.card", 2.5, { rotation: -60, x: "-50%", scale: 0.25 }, {rotation: 0, x: "0%", scale: 1, ease: Quint.easeInOut})
+        .fromTo("div.card", 2.5, { rotation: -60, x: "-50%", scale: 0.25 }, { rotation: 0, x: "0%", scale: 1, ease: Quint.easeInOut })
     new ScrollMagic.Scene({
         triggerElement: "#trigger1"
     })
         .setTween(cardAnimation)
         .addTo(controller);
+    //     let t2 = new TimelineMax()
+    //         .fromTo("section.bg-info > h1", 3, { scale: 0 }, { scale: 1 })
+    //     new ScrollMagic.Scene({
+    //         triggerElement: "#trigger2",
+    //         offset: 115
+    //     })
+    //         .setTween(t2)
+    //         .on("enter leave", e => console.debug(e))
+    //         .addIndicators("t2")
+    //         .addTo(controller);
+    //     let t3 = new TimelineMax()
+    //         .fromTo("section.bg-info > h1", 3, { scale: 1 }, { scale: 0 })
+    //         .fromTo("section.bg-success > h1", 3, { opacity: 0 }, { opacity: 1 })
+    //     new ScrollMagic.Scene({
+    //         triggerElement: "#trigger3",
+    //         offset: 115*3
+    //     })
+    //         .setTween(t3)
+    //         .on("enter leave", e => console.debug(e))
+    //         .addIndicators("t3")
+    //         .addTo(controller);
 });
 
 var textWrapper = document.querySelector('#cong');
