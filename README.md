@@ -9,8 +9,26 @@
 
 ### 架構
 #### 後端
-- [ ] index redirect
+- port config
+- route
+  - get /
+    - *if* __session__: *return* `success`
+    - *else*: *return* `login`
+  - post /
+    - *if* __time limit__: *return* `429`
+    - *else* *switch* __pwd__
+      - *case* `a`: `session.Set()` *return* `200`
+      - *case* `97`: *return* `403`
+      - *default*: *return* `401`
 #### 前端
-- [ ] success.html
-- [ ] anime
-- [ ] footer
+- login
+  - form
+  - hint
+  - post
+  - modal
+  - failed
+- succcess
+  - firework
+  - congratulation
+  - section wiping
+  - card column
