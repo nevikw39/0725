@@ -5,7 +5,7 @@ $(function () {
         .fromTo("section.bg-success", 5, { x: "-100%" }, { x: "0%", ease: Circ.easeInOut })
         .fromTo("section.bg-warning", 3, { y: "100%" }, { y: "0%", ease: Bounce.easeInOut })
         .fromTo("section.bg-danger", 5, { x: "100%" }, { x: "0%", ease: Expo.easeInOut })
-        // .fromTo("#trigger1", 1, { y: "1%" }, { y: "0%", ease: Quint.easeInOut });
+     .fromTo("#trigger1", 1, { y: "1%" }, { y: "0%", ease: Quint.easeInOut });
     new ScrollMagic.Scene({
         triggerElement: "#pin",
         triggerHook: "onLeave",
@@ -13,12 +13,16 @@ $(function () {
     })
         .setPin("#pin")
         .setTween(wipeAnimation)
+        .on("enter", () => {
+            $("section.bg-danger").css({ "transform": "translate(100%, 0px)" });
+            $("section.bg-warning").css({ "transform": "translate(0px, 100%)" });
+        })
         .addIndicators()
         .addTo(controller);
     new ScrollMagic.Scene({
         triggerElement: "#trigger0"
     })
-        .setTween("#cong", 2, { rotate: 90, scale: 2 })
+        .setTween("#cong", 2, { rotate: 90 })
         .on("enter leave", e => {
             if (e.type == "enter") {
                 if (launch_id && loop_id) {
@@ -59,6 +63,7 @@ $(function () {
     //         .on("enter leave", e => console.debug(e))
     //         .addIndicators("t3")
     //         .addTo(controller);
+    setTimeout(() => window.scrollTo(0, 0), 100);
 });
 
 var textWrapper = document.querySelector('#cong');
