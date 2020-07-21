@@ -46,13 +46,13 @@ func main() {
 				session.Save()
 				c.JSON(http.StatusOK, gin.H{})
 			case "97":
-				session.Set("nevikw39_0725", time.Now().Add(60*time.Second).UnixNano())
+				session.Set("nevikw39_0725", time.Now().Add(15*time.Second).UnixNano())
 				session.Save()
-				c.JSON(http.StatusForbidden, gin.H{"nevikw39_0725": time.Now().Add(60 * time.Second).UnixNano()})
+				c.JSON(http.StatusForbidden, gin.H{"nevikw39_0725": time.Now().Add(15 * time.Second).UnixNano()})
 			default:
-				session.Set("nevikw39_0725", time.Now().Add(60*time.Second).UnixNano())
+				session.Set("nevikw39_0725", time.Now().Add(15*time.Second).UnixNano())
 				session.Save()
-				c.JSON(http.StatusUnauthorized, gin.H{"nevikw39_0725": time.Now().Add(60 * time.Second).UnixNano()})
+				c.JSON(http.StatusUnauthorized, gin.H{"nevikw39_0725": time.Now().Add(15 * time.Second).UnixNano()})
 			}
 		}
 	})
