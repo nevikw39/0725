@@ -5,7 +5,7 @@ $(function () {
         .fromTo("section.bg-success", 5, { x: "-100%" }, { x: "0%", ease: Circ.easeInOut })
         .fromTo("section.bg-warning", 3, { y: "100%" }, { y: "0%", ease: Bounce.easeInOut })
         .fromTo("section.bg-danger", 2, { x: "100%" }, { x: "0%", ease: Expo.easeInOut })
-        .fromTo("#trigger1", 1, { y: "1%" }, { y: "0%", ease: Quint.easeInOut });
+        // .fromTo("#trigger1", 1, { y: "1%" }, { y: "0%", ease: Quint.easeInOut });
     new ScrollMagic.Scene({
         triggerElement: "#pin",
         triggerHook: "onLeave",
