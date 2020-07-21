@@ -1,8 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gin-contrib/sessions"
@@ -11,6 +14,11 @@ import (
 )
 
 func main() {
+	f, _ := os.Open("port.json")
+	defer f.Close()
+	b, _ := ioutil.ReadAll(f)
+	var j map[string]interface{}
+	json.Unmarshal(b, &j)
 	r := gin.Default()
 	store := cookie.NewStore([]byte("nevikw39_0725"))
 	r.Static("static", "static/")
@@ -48,5 +56,5 @@ func main() {
 			}
 		}
 	})
-	r.Run(":725")
+	r.Run(fmt.Sprintf(":%v", j["port"].(float64)))
 }
