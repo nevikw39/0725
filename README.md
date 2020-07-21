@@ -2,7 +2,7 @@
 ## 佰拾壹中部電資聯合幹部見面：ＲＰＧ解謎
 
 ### 內容
-1. 以 *hex-string* 表示網址的 *ASCII* 編碼
+1. 以 *hex* 表示伺服器的 __IP__
 2. 在網頁原始碼中隱藏密碼的規則
     - 在網頁中已與背景同色之文字提示
 3. 根據規則，計算費氏數列第 111 項之個位數字和，再轉為 *ASCII*
@@ -32,3 +32,13 @@
   - congratulation
   - section wiping
   - card column
+
+### Usage
+```bash
+git clone git@github.com:nevikw39/0725.git
+cd 0725
+go mod download
+go build .
+./0725
+# Have Fun!!
+```
