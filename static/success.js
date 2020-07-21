@@ -5,7 +5,7 @@ $(function () {
         .fromTo("section.bg-success", 5, { x: "-100%" }, { x: "0%", ease: Circ.easeInOut })
         .fromTo("section.bg-warning", 3, { y: "100%" }, { y: "0%", ease: Bounce.easeInOut })
         .fromTo("section.bg-danger", 5, { x: "100%" }, { x: "0%", ease: Expo.easeInOut })
-     .fromTo("#trigger1", 1, { y: "1%" }, { y: "0%", ease: Quint.easeInOut });
+        .fromTo("#trigger1", 1, { y: "1%" }, { y: "0%", ease: Quint.easeInOut });
     new ScrollMagic.Scene({
         triggerElement: "#pin",
         triggerHook: "onLeave",
@@ -13,9 +13,15 @@ $(function () {
     })
         .setPin("#pin")
         .setTween(wipeAnimation)
-        .on("enter", () => {
-            $("section.bg-danger").css({ "transform": "translate(100%, 0px)" });
-            $("section.bg-warning").css({ "transform": "translate(0px, 100%)" });
+        .on("enter", e => {
+            if (e.scrollDirection == "REVERSE") {
+                $("section.bg-danger").css({ "transform": "translate(0%, 0px)" });
+                $("section.bg-warning").css({ "transform": "translate(0px, 0%)" });
+            } else {
+                $("section.bg-danger").css({ "transform": "translate(100%, 0px)" });
+                $("section.bg-warning").css({ "transform": "translate(0px, 100%)" });
+            }
+
         })
         .addIndicators()
         .addTo(controller);
