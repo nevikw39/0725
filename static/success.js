@@ -21,7 +21,6 @@ $(function () {
                 $("section.bg-danger").css({ "transform": "translate(100%, 0px)" });
                 $("section.bg-warning").css({ "transform": "translate(0px, 100%)" });
             }
-
         })
         .addIndicators()
         .addTo(controller);
