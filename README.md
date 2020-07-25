@@ -49,7 +49,7 @@
   - congratulation
   - section wiping
   - card column
-##### 使用框架、函式庫
+##### Frameworks, Libraries depended
 - *Bootstrap*
   - 不必多說，手刻網頁的好夥伴
   - 我有自己慢慢調整過 css
